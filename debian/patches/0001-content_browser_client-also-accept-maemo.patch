@@ -16,10 +16,10 @@ index d3181c5..eb17df6 100644
          QString platform = qApp->platformName().toLower();
          QPlatformNativeInterface *pni = QGuiApplication::platformNativeInterface();
 -        if (platform == QLatin1String("xcb") || platform == QLatin1String("offscreen")) {
-+        if (platform == QLatin1String("xcb") || platform == QLatin1String("maemo") || platform == QLatin1String("offscreen")) {
++        if (platform == QLatin1String("xcb") || platform == QLatin1String("maemo") || platform == QLatin1String("offscreen"))
+
              if (gl::GetGLImplementation() == gl::kGLImplementationEGLGLES2)
                  m_handle = pni->nativeResourceForContext(QByteArrayLiteral("eglcontext"), qtContext);
              else
 -- 
 2.35.1
-

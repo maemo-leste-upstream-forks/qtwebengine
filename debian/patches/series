@@ -24,3 +24,4 @@ mipsel-syscall-ranges.patch
 mips64el-kernel_stat64.patch
 armhf-no-thumb.patch
 disable-catapult.patch
+0001-content_browser_client-also-accept-maemo.patch
