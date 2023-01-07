@@ -9,3 +9,4 @@ mipsel-no-dav1d.patch
 mipsel-link-atomic.patch
 sandbox-time64-syscalls.patch
 mipsel-code-range-size.patch
+0001-content_browser_client-also-accept-maemo.patch
