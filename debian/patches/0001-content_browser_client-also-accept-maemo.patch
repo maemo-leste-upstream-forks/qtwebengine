@@ -1,0 +1,25 @@
+From 5cf4a3e18c1c32134ca10a946f5191cca781c1bc Mon Sep 17 00:00:00 2001
+From: Merlijn Wajer <merlijn@wizzup.org>
+Date: Sat, 7 Jan 2023 02:33:11 +0100
+Subject: [PATCH] content_browser_client: also accept maemo
+
+---
+ src/core/content_browser_client_qt.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/core/content_browser_client_qt.cpp b/src/core/content_browser_client_qt.cpp
+index d3181c5..eb17df6 100644
+--- a/src/core/content_browser_client_qt.cpp
++++ b/src/core/content_browser_client_qt.cpp
+@@ -250,7 +250,7 @@ public:
+     {
+         QString platform = qApp->platformName().toLower();
+         QPlatformNativeInterface *pni = QGuiApplication::platformNativeInterface();
+-        if (platform == QLatin1String("xcb") || platform == QLatin1String("offscreen")) {
++        if (platform == QLatin1String("xcb") || platform == QLatin1String("maemo") || platform == QLatin1String("offscreen")) {
+             if (gl::GetGLImplementation() == gl::kGLImplementationEGLGLES2)
+                 m_handle = pni->nativeResourceForContext(QByteArrayLiteral("eglcontext"), qtContext);
+             else
+-- 
+2.35.1
+
