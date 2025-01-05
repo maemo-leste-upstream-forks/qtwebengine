@@ -5,7 +5,7 @@ Last-Update: 2020-03-17
 
 --- a/src/3rdparty/chromium/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
 +++ b/src/3rdparty/chromium/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
-@@ -41,8 +41,12 @@
+@@ -42,8 +42,12 @@
  // the one in Ubuntu 16.04 LTS) is missing PTRACE_GET_THREAD_AREA.
  // asm/ptrace-abi.h doesn't exist on arm32 and PTRACE_GET_THREAD_AREA isn't
  // defined on aarch64, so don't try to include this on those platforms.

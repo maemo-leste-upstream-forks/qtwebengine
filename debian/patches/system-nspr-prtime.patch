@@ -8,7 +8,7 @@ Last-Update: 2020-03-02
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/src/3rdparty/chromium/base/BUILD.gn
 +++ b/src/3rdparty/chromium/base/BUILD.gn
-@@ -108,6 +108,9 @@ config("base_flags") {
+@@ -103,6 +103,9 @@ config("base_flags") {
        "-Wglobal-constructors",
      ]
    }
@@ -18,7 +18,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  }
  
  config("base_implementation") {
-@@ -713,8 +716,6 @@ jumbo_component("base") {
+@@ -728,8 +731,6 @@ jumbo_component("base") {
      "third_party/cityhash_v103/src/city_v103.h",
      "third_party/icu/icu_utf.cc",
      "third_party/icu/icu_utf.h",
@@ -41,8 +41,8 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/src/3rdparty/chromium/base/time/time.cc
 +++ b/src/3rdparty/chromium/base/time/time.cc
 @@ -14,7 +14,7 @@
- #include "base/macros.h"
- #include "base/no_destructor.h"
+ #include "base/optional.h"
+ #include "base/strings/string_util.h"
  #include "base/strings/stringprintf.h"
 -#include "base/third_party/nspr/prtime.h"
 +#include <nspr/prtime.h>

@@ -1,12 +1,26 @@
-run-unbundling-script.patch
+# Use system libraries.
+system-openjpeg2.patch
 system-lcms2.patch
 system-nspr-prtime.patch
 system-icu-utf.patch
+
+# Fix python problems.
+python3.patch
+chromium-python3.patch
+python3.11.patch
+
+# General patches.
 verbose-gn-bootstrap.patch
-mipsel-linux-5.patch
 mipsel-ptrace-include.patch
 mipsel-no-dav1d.patch
 mipsel-link-atomic.patch
 sandbox-time64-syscalls.patch
 mipsel-code-range-size.patch
-0001-content_browser_client-also-accept-maemo.patch
+breakpad-getcontext.patch
+mipsel-ggc-min-expand.patch
+mips64el-crashpad.patch
+mips64el-bad-define.patch
+mipsel-syscall-ranges.patch
+mips64el-kernel_stat64.patch
+armhf-no-thumb.patch
+disable-catapult.patch

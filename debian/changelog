@@ -1,8 +1,336 @@
-qtwebengine-opensource-src (5.15.2+dfsg-3-leste1) unstable; urgency=medium
+qtwebengine-opensource-src (5.15.13+dfsg-1~deb12u1) unstable; urgency=medium
 
-  * Maemo Leste import with maemo platform addition
+  * New upstream release.
+  * Update SUBMODULE_COMMIT for the new release.
+  * Remove copyright section for debian/missing-sources/jszip-2.4.0.
+  * Bump ABI version to qtwebengine-abi-5-15-13.
+  * Drop gcc-12.patch, included in the new release.
+  * Refresh debian/patches/python3.patch.
 
- -- Merlijn Wajer <merlijn@wizzup.org>  Sat, 07 Jan 2023 02:45:03 +0100
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 24 Mar 2023 18:32:25 +0300
+
+qtwebengine-opensource-src (5.15.12+dfsg-3) unstable; urgency=medium
+
+  * Add debian/90qtwebengine-dictionaries-path.conf.
+  * debian/copyright:
+    - Add myself to copyright file.
+    - Update copyright dates for other contributors.
+  * debian/control:  Add build-depends on libopenjp2-7-dev to remove
+    embedded openjpeg library.
+  * debian/libqt5webengine-data.install:  Install
+    90qtwebengine-dictionaries-path.conf to /etc/environment.d/.
+  * debian/libqt5webengine-data.links:  Remove the hunspell-bdic symlink.
+  * debian/patches:  Add system-libopenjpeg2.patch.
+  * Update Lintian override format to use pointed hints.
+  * Bump Standards-Version to 4.6.2, no changes needed.
+  * Add myself to uploaders.
+
+ -- Soren Stoutner <soren@stoutner.com>  Wed, 01 Feb 2023 06:57:05 -0700
+
+qtwebengine-opensource-src (5.15.12+dfsg-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 13 Jan 2023 12:02:22 +0400
+
+qtwebengine-opensource-src (5.15.12+dfsg-1) experimental; urgency=medium
+
+  [ Dmitry Shachnev ]
+  * New upstream release.
+  * Update SUBMODULE_COMMIT for the new release.
+  * Bump ABI version to qtwebengine-abi-5-15-12.
+  * Update debian/copyright using debian/scripts/update-copyright.
+  * Add /usr/share/qt5/qtwebengine_dictionaries → /usr/share/hunspell-bdic
+    symlink (see #1020387).
+  * Build against Qt 5.15.8.
+  * Add a patch to fix build with Python 3.11.
+
+  [ Soren Stoutner ]
+  * Update watch file.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 09 Jan 2023 12:09:05 +0400
+
+qtwebengine-opensource-src (5.15.11+dfsg-5) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 17 Dec 2022 18:20:43 +0300
+
+qtwebengine-opensource-src (5.15.11+dfsg-4) experimental; urgency=medium
+
+  * Build against Qt 5.15.7.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 06 Dec 2022 14:54:51 +0300
+
+qtwebengine-opensource-src (5.15.11+dfsg-3) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 04 Dec 2022 11:56:05 +0300
+
+qtwebengine-opensource-src (5.15.11+dfsg-2) experimental; urgency=medium
+
+  * Replace python2 with python3 in one more place, to fix docs build.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 27 Nov 2022 20:25:20 +0300
+
+qtwebengine-opensource-src (5.15.11+dfsg-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Update SUBMODULE_COMMIT for the new release.
+  * Bump ABI version to qtwebengine-abi-5-15-11.
+  * Remove __NR_statx part from sandbox-time64-syscalls.patch.
+    A similar change was applied upstream in commit a7a23ccc69e6756e.
+  * Disable Catapult to simplify porting to Python 3.
+    - Add disable-catapult.patch (copied from Chromium packaging).
+    - Exclude catapult directory from the tarball.
+    - Drop remove-benchmark-from-inputs.patch and python2.patch.
+    - Drop debian/missing-sources/jszip-2.4.0.
+    - Stop copying pako.min.js and d3.min.js in debian/rules.
+    - Drop libjs-d3 and node-pako build-dependencies.
+  * Use Python 3 instead of Python 2 for building (closes: #938322).
+    - Update build-dependency.
+    - Add python3.patch, inspired by Arch Linux but using versioned python3.
+    - Add chromium-python3.patch, copied from Arch Linux.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 27 Nov 2022 12:06:13 +0300
+
+qtwebengine-opensource-src (5.15.10+dfsg-7) unstable; urgency=medium
+
+  * Update symbols files from buildds’ logs.
+  * Upload to unstable.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Thu, 29 Sep 2022 11:39:27 +0300
+
+qtwebengine-opensource-src (5.15.10+dfsg-6) experimental; urgency=medium
+
+  * Update symbols files from buildds’ logs.
+  * Build against Qt 5.15.6.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Wed, 14 Sep 2022 10:51:34 +0300
+
+qtwebengine-opensource-src (5.15.10+dfsg-5) experimental; urgency=medium
+
+  * Update symbols files from buildds’ logs.
+  * Build against Qt 5.15.5.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Thu, 28 Jul 2022 23:21:40 +0300
+
+qtwebengine-opensource-src (5.15.10+dfsg-4) unstable; urgency=medium
+
+  * Add a patch to fix build with GCC 12 (closes: #1013025).
+  * Update symbols files from amd64 build log with GCC 12.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Wed, 27 Jul 2022 11:45:31 +0300
+
+qtwebengine-opensource-src (5.15.10+dfsg-3) unstable; urgency=medium
+
+  * Disable CONFIG_THUMB to fix build on armhf.
+  * Pass -z notext to linker to fix build on i386.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 28 Jun 2022 12:48:02 +0300
+
+qtwebengine-opensource-src (5.15.10+dfsg-2) unstable; urgency=medium
+
+  * Build with bundled ffmpeg for now (closes: #1004594).
+  * Bump Standards-Version to 4.6.1, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 25 Jun 2022 23:59:39 +0300
+
+qtwebengine-opensource-src (5.15.10+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update SUBMODULE_COMMIT for the new release.
+  * Bump ABI version to qtwebengine-abi-5-15-10.
+  * Use symver directive to catch all private symbols at once.
+  * Refresh debian/patches/verbose-gn-bootstrap.patch.
+  * Upload to unstable.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 13 Jun 2022 21:37:05 +0300
+
+qtwebengine-opensource-src (5.15.9+dfsg-2) experimental; urgency=medium
+
+  * Bump nodejs build-dependency to 16.14. With the previous version (14.19),
+    the build hangs on mips64el and mipsel.
+  * Build against Qt 5.15.4.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 14 May 2022 19:51:49 +0300
+
+qtwebengine-opensource-src (5.15.9+dfsg-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Update SUBMODULE_COMMIT for the new release.
+  * Bump ABI version to qtwebengine-abi-5-15-9.
+  * Update debian/libqt5webenginecore5.symbols from buildds’ logs.
+  * Remove copyright for win_build_output, it is in Files-Excluded.
+  * Add one new symbol to debian/libqt5webenginecore5.symbols.
+  * Update debian/source/lintian-overrides for Lintian 2.109.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 08 Apr 2022 19:19:50 +0300
+
+qtwebengine-opensource-src (5.15.8+dfsg-2) experimental; urgency=medium
+
+  * Build against Qt 5.15.3.
+  * Bump ABI version to qtwebengine-abi-5-15-8.
+  * Update debian/libqt5webenginecore5.symbols from buildds’ logs.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 08 Mar 2022 22:44:37 +0300
+
+qtwebengine-opensource-src (5.15.8+dfsg-1) unstable; urgency=medium
+
+  [ Alexander Volkov ]
+  * Enable Kerberos support.
+
+  [ Dmitry Shachnev ]
+  * New upstream release.
+  * Update SUBMODULE_COMMIT for the new release.
+  * Depend on sse2-support for i386 (closes: #1003249).
+  * Add more files to Files-Excluded (closes: #1000620).
+  * Drop glibc-2.34-SIGSTKSZ.patch, applied upstream.
+  * Refresh system-icu-utf.patch.
+  * Update symbols files from buildds’ and the current build logs.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 17 Jan 2022 17:54:14 +0300
+
+qtwebengine-opensource-src (5.15.7+dfsg-2) unstable; urgency=medium
+
+  * Update debian/libqt5webenginecore5.symbols from buildds’ logs.
+  * Add a patch to make sure kernel_stat64 is defined on mips64el.
+  * Update debian/watch to track only 5.15.x releases.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 26 Nov 2021 00:20:58 +0300
+
+qtwebengine-opensource-src (5.15.7+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update SUBMODULE_COMMIT for the new release.
+  * Drop patches, included in the new release:
+    - sandbox-fstatat-syscalls.patch
+    - glibc-2.34-clone3.patch
+    - half of sandbox-time64-syscalls.patch
+  * Update symbols files from buildds’ and the current build logs.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 23 Nov 2021 13:38:46 +0300
+
+qtwebengine-opensource-src (5.15.6+dfsg-2) unstable; urgency=medium
+
+  * Replace mipsel-linux-5.patch with new mipsel-syscall-ranges.patch to
+    fix mips* build with new kernel (closes: #995187). Thanks YunQiang Su!
+  * Update debian/libqt5webenginecore5.symbols for armhf.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Wed, 29 Sep 2021 20:12:07 +0300
+
+qtwebengine-opensource-src (5.15.6+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update SUBMODULE_COMMIT for the new release.
+  * Update debian/libqt5webenginecore5.symbols from the current build log.
+  * Bump Standards-Version to 4.6.0, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 20 Sep 2021 14:10:57 +0300
+
+qtwebengine-opensource-src (5.15.5+dfsg-2) unstable; urgency=medium
+
+  * Add a patch to fix build with glibc ≥ 2.34 where SIGSTKSZ is no longer
+    a compile time constant.
+  * Backport Chromium patch to make Linux sandbox return ENOSYS for clone3
+    syscall (LP: #1939993).
+  * Update debian/libqt5webenginecore5.symbols from buildds’ logs.
+  * Upload to unstable.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 17 Aug 2021 12:15:30 +0300
+
+qtwebengine-opensource-src (5.15.5+dfsg-1) experimental; urgency=medium
+
+  * New upstream release.
+    - Includes a fix for building with GCC 11 (closes: #984315).
+  * Update get-orig-source target for the new release.
+  * Drop two patches that are included in the new release:
+    - fix-locales-normalization.patch
+    - CVE-2021-21193.patch
+  * Bump ABI version to qtwebengine-abi-5-15-5.
+  * Remove polymer_bundled.min.js from Files-Excluded (LP: #1926089).
+    - There is non-minified polymer_bundled.js in the source.
+  * Forward DEB_BUILD_OPTIONS=parallel=N setting to ninja (closes: #986684).
+  * Make sure $NINJAJOBS is also used when bootstrapping gn.
+  * Add libxkbfile-dev build-dependency (required since 5.15.5).
+  * Update symbols files from buildds’ and the current build logs.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 19 Jun 2021 11:58:16 +0300
+
+qtwebengine-opensource-src (5.15.3+dfsg-5) experimental; urgency=medium
+
+  * Add support for mips64el architecture:
+    - Make mipsel-no-dav1d.patch apply to mips64el too.
+    - Add a patch from Ma Aiguo to make crashpad build on mips64el.
+    - Backport upstream patch to fix bad define in linux_syscall_support.h.
+    - Add mips64el to supported architectures in debian/control.
+  * Update symbols files from buildds’ and the current build logs.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 06 Apr 2021 13:47:37 +0300
+
+qtwebengine-opensource-src (5.15.3+dfsg-4) experimental; urgency=medium
+
+  * Disable jumbo builds to reduce memory consumption.
+  * Add a patch to further reduce memory consumption on mipsel.
+  * Remove non-working and/or obsolete code from debian/rules.
+  * For Ubuntu, build with -j2 on amd64 like on arm64.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Thu, 01 Apr 2021 16:02:12 +0300
+
+qtwebengine-opensource-src (5.15.3+dfsg-3) experimental; urgency=medium
+
+  * Add a patch to make breakpad use system getcontext instead of its own,
+    to fix build on mipsel.
+  * Make Chromium sandbox code compatible with glibc 2.33:
+    - Extend sandbox-time64-syscalls.patch to handle statx and time64
+      (patch by Fabian Vogt from openSUSE).
+    - Add new patch sandbox-fstatat-syscalls.patch to handle newfstatat
+      and fstatat64 syscalls (by Kevin Kofler from Fedora).
+  * Update symbols files from buildds’ and the current build logs.
+  * Use $NINJAJOBS instead of $NINJAFLAGS for passing the -j flag.
+  * Clean up unused variables in debian/rules.
+  * Actually add CVE-2021-21193.patch to debian/patches/series.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 22 Mar 2021 21:29:23 +0300
+
+qtwebengine-opensource-src (5.15.3+dfsg-2) experimental; urgency=medium
+
+  * Fix the command to change CMake dependencies versions.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 16 Mar 2021 12:20:42 +0300
+
+qtwebengine-opensource-src (5.15.3+dfsg-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Add get-orig-source target (as upstream no longer publishes tarballs).
+  * Update Files-Excluded and touch_files for the new release.
+  * Refresh and rebase patches for the new release.
+  * Add new overrides/ignores to debian/scripts/update-copyright.
+  * Update debian/copyright using the script and manually.
+  * Bump ABI version to qtwebengine-abi-5-15-3.
+  * Build-depend on nodejs, required by Chromium 87.
+  * Stop using closure-compiler, Debian has an ancient version that doesn't
+    support template literals.
+  * Remove yasm build-dependency, Chromium no longer uses it.
+    - Also remove run-unbundling-script.patch which was used to unbundle it.
+  * Remove a non-DFSG benchmark file (jsmin.py) from build inputs.
+  * Copy system d3.min.js and pako.min.js to replace the excluded files.
+  * Stop excluding jszip.min.js, add its source code to missing-sources.
+  * Add a patch to use python2 instead of unversioned python.
+  * Build-depend on node-yargs, required by generate_html_entrypoint.js.
+  * Do not exclude some parts of node_modules that are used during build.
+  * Build-depend on rollup and node-rollup-plugins-terser.
+  * Run syncqt.pl before build, to get the header files generated.
+  * Backport upstream patch to fix normalization of app locales.
+  * Update mocha in missing-sources to the actually used version.
+  * Update symbols files from the current build log.
+  * Fix/override some new Lintian source-is-missing errors.
+  * Do not require matching versions of Qt dependencies in CMake files.
+  * Do not hardcode x86_64-linux-gnu in lintian-overrides.
+  * Backport fix for CVE-2021-21193 from upstream Chromium.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 15 Mar 2021 21:45:48 +0300
 
 qtwebengine-opensource-src (5.15.2+dfsg-3) unstable; urgency=medium
 

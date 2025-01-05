@@ -12,7 +12,7 @@ If this script complains about unknown license, add it to LICENSE_VARIATIONS
 dictionary (or add the corresponding directory to IGNORED_DIRECTORIES or
 LICENSE_OVERRIDES).
 
-Author: 2020 Dmitry Shachnev <mitya57@debian.org>
+Author: 2020-2021 Dmitry Shachnev <mitya57@debian.org>
 """
 
 import json
@@ -76,19 +76,29 @@ LICENSE_VARIATIONS = (
     ("public-domain and BSD-3-clause", ["Public domain and BSD"]),
 )
 
-# These directories don't actually have source code.
 IGNORED_DIRECTORIES = (
+    # These directories don't actually have source code.
     "chromium/buildtools/clang_format",
     "chromium/third_party/adobe",
+    "chromium/third_party/fuchsia-sdk",
     "chromium/third_party/libovr",
+    "chromium/third_party/webpagereplay",
     "chromium/third_party/widevine",
+    # We have an override for the top-level hyphenation-patterns directory.
+    "chromium/third_party/hyphenation-patterns/src",
+    "chromium/third_party/hyphenation-patterns/src/en-GB",
 )
 
 LICENSE_OVERRIDES = {
     "chromium/third_party/boringssl":
         "OpenSSL and SSLeay and ISC and MIT and BSD-3-clause",
-    "chromium/third_party/catapult/tracing/third_party/jszip": "MIT or GPL-3",
+    "chromium/third_party/devtools-frontend/src/third_party/i18n":
+        "Apache-2.0",
     "chromium/third_party/freetype": "FTL",
+    "chromium/third_party/hyphenation-patterns":
+        "LGPL-2.1 and MIT and Unicode and BSD-3-clause",
+    "chromium/third_party/hyphenation-patterns/src":
+        "LGPL-2.1 and MIT and Unicode and BSD-3-clause",
     "chromium/third_party/iccjpeg": "IJG",
     "chromium/third_party/libjpeg": "IJG",
     "chromium/third_party/libjpeg_turbo": "IJG and BSD-3-clause and Zlib",

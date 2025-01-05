@@ -6,7 +6,7 @@ Last-Update: 2020-09-28
 
 --- a/src/3rdparty/chromium/v8/src/common/globals.h
 +++ b/src/3rdparty/chromium/v8/src/common/globals.h
-@@ -224,7 +224,7 @@ constexpr size_t kMinimumCodeRangeSize =
+@@ -228,7 +228,7 @@ constexpr size_t kMinimumCodeRangeSize =
  constexpr size_t kMinExpectedOSPageSize = 64 * KB;  // OS page on PPC Linux
  #elif V8_TARGET_ARCH_MIPS
  constexpr bool kPlatformRequiresCodeRange = false;

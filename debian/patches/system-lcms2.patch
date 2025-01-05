@@ -3,12 +3,12 @@ Author: Sandro Knauß <hefee@debian.org>
 Origin: Debian
 Forwarded: https://bugreports.qt.io/browse/QTBUG-61746
 Reviewed-by: Sandro Knauß <hefee@debian.org>
-Last-Update: 2020-11-20
+Last-Update: 2021-03-08
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/src/3rdparty/chromium/third_party/pdfium/third_party/BUILD.gn
 +++ b/src/3rdparty/chromium/third_party/pdfium/third_party/BUILD.gn
-@@ -256,61 +256,19 @@ if (!pdf_use_skia && !pdf_use_skia_paths
+@@ -239,58 +239,19 @@ if (!pdf_use_skia && !pdf_use_skia_paths
    }
  }
  
@@ -19,12 +19,10 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 -      # cmslut.cc is sloppy with aggregate initialization. Version 2.7 of this
 -      # library doesn't appear to have this problem.
 -      "-Wno-missing-braces",
-+import("//build/shim_headers.gni")
- 
--      # FindPrev() in cmsplugin.c is unused.
--      "-Wno-unused-function",
 -    ]
 -  }
++import("//build/shim_headers.gni")
++
 +shim_headers("lcms2_shim") {
 +  root_path = "lcms/include"
 +  headers = [

@@ -1,63 +1,92 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Source: https://download.qt.io/official_releases/qt/*/submodules/
-Files-Excluded: src/3rdparty/chromium/buildtools/third_party/eu-strip/bin/eu-strip
+Files-Excluded: src/3rdparty/chromium/build/android/CheckInstallApk-debug.apk
+                src/3rdparty/chromium/build/android/stacktrace/java_deobfuscate.jar
+                src/3rdparty/chromium/buildtools/third_party/eu-strip/bin/eu-strip
                 src/3rdparty/chromium/net/tools/testserver/dist/*.pyd
                 src/3rdparty/chromium/third_party/angle/third_party/rapidjson/src/bin/jsonchecker
+                src/3rdparty/chromium/third_party/angle/third_party/vulkan-loader/src/loader/loader.aps
+                src/3rdparty/chromium/third_party/angle/third_party/vulkan-tools/src/external/x64/lib/vulkan-1.lib
+                src/3rdparty/chromium/third_party/angle/third_party/vulkan-tools/src/external/x86/lib/vulkan-1.lib
                 src/3rdparty/chromium/third_party/apple_apsl/*
                 src/3rdparty/chromium/third_party/blanketjs/src/blanket.js
+                src/3rdparty/chromium/third_party/blink/manual_tests/accessibility/resources/AppletTest.class
                 src/3rdparty/chromium/third_party/blink/manual_tests/plugins/*.swf
+                src/3rdparty/chromium/third_party/blink/manual_tests/resources/ArrayParameterTestApplet.class
+                src/3rdparty/chromium/third_party/blink/manual_tests/resources/CheckerApplet.class
+                src/3rdparty/chromium/third_party/blink/manual_tests/resources/DrawMessage.class
                 src/3rdparty/chromium/third_party/blink/manual_tests/resources/spinbox.swf
-                src/3rdparty/chromium/third_party/blink/renderer/platform/testing/data/lenna.bmp
+                src/3rdparty/chromium/third_party/blink/manual_tests/resources/StringTypeTest.class
+                src/3rdparty/chromium/third_party/blink/manual_tests/resources/TestApplet.class
+                src/3rdparty/chromium/third_party/breakpad/breakpad/src/client/mac/gcov/libgcov.a
+                src/3rdparty/chromium/third_party/breakpad/breakpad/src/client/mac/testapp/crashduringload
+                src/3rdparty/chromium/third_party/breakpad/breakpad/src/client/mac/testapp/crashInMain
                 src/3rdparty/chromium/third_party/breakpad/breakpad/src/tools/windows/binaries
                 src/3rdparty/chromium/third_party/breakpad/symupload.exe
                 src/3rdparty/chromium/third_party/bspatch/LICENSE
-                src/3rdparty/chromium/third_party/catapult/common/py_vulcanize/third_party/rjsmin/bench/apiviewer.js
-                src/3rdparty/chromium/third_party/catapult/common/py_vulcanize/third_party/rjsmin/bench/jsmin.c
-                src/3rdparty/chromium/third_party/catapult/common/py_vulcanize/third_party/rjsmin/bench/jsmin.py
-                src/3rdparty/chromium/third_party/catapult/common/py_vulcanize/third_party/rjsmin/bench/knockout-2.0.0.js
-                src/3rdparty/chromium/third_party/catapult/tracing/third_party/chai/chai.js
-                src/3rdparty/chromium/third_party/catapult/tracing/third_party/jszip/jszip.min.js
-                src/3rdparty/chromium/third_party/catapult/tracing/third_party/d3/d3.min.js
-                src/3rdparty/chromium/third_party/catapult/tracing/third_party/pako/pako.min.js
+                src/3rdparty/chromium/third_party/catapult
                 src/3rdparty/chromium/third_party/chaijs/chai.js
                 src/3rdparty/chromium/third_party/checkstyle/*
+                src/3rdparty/chromium/third_party/closure_compiler/compiler/compiler.jar
                 src/3rdparty/chromium/third_party/crashpad/crashpad/handler/win/z7_test.dll
                 src/3rdparty/chromium/third_party/crashpad/crashpad/snapshot/elf/elf_image_reader_fuzzer_corpus
                 src/3rdparty/chromium/third_party/crashpad/crashpad/third_party/apple_cf/*
+                src/3rdparty/chromium/third_party/crashpad/crashpad/util/misc/capture_context_win_arm64.obj
                 src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/diff/diff_match_patch.js
-                src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/formatter_worker/acorn/acorn.js
+                src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/acorn/package/dist/acorn.js
                 src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/lighthouse/lighthouse-dt-bundle.js
                 src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/lighthouse/report-assets/report-generator.js
-                src/3rdparty/chromium/third_party/devtools-frontend/src/node_modules
+                src/3rdparty/chromium/third_party/devtools-frontend/src/node_modules/rollup/dist/rollup.browser.js
+                src/3rdparty/chromium/third_party/devtools-frontend/src/node_modules/rollup/node_modules/fsevents/fsevents.node
+                src/3rdparty/chromium/third_party/devtools-frontend/src/scripts/closure/closure_runner/closure_runner.jar
+                src/3rdparty/chromium/third_party/devtools-frontend/src/scripts/closure/compiler.jar
+                src/3rdparty/chromium/third_party/devtools-frontend/src/scripts/jsdoc_validator/jsdoc_validator.jar
                 src/3rdparty/chromium/third_party/dom_distiller_js/dist/js/*.js
+                src/3rdparty/chromium/third_party/flatbuffers/src/android/gradle/wrapper/gradle-wrapper.jar
+                src/3rdparty/chromium/third_party/flatbuffers/src/samples/android/gradle/wrapper/gradle-wrapper.jar
+                src/3rdparty/chromium/third_party/google-closure-library/scripts/ci/CloseAdobeDialog.exe
+                src/3rdparty/chromium/third_party/gradle_wrapper/gradle/wrapper/gradle-wrapper.jar
+                src/3rdparty/chromium/third_party/jetifier_standalone/lib/jetifier-standalone.jar
                 src/3rdparty/chromium/third_party/jstemplate/jstemplate_compiled.js
                 src/3rdparty/chromium/third_party/lzma_sdk/7zr.exe
                 src/3rdparty/chromium/third_party/lzma_sdk/Executable/7za.exe
                 src/3rdparty/chromium/third_party/mako/doc
-                src/3rdparty/chromium/third_party/pdfium/third_party/eu-strip/bin/eu-strip
-                src/3rdparty/chromium/third_party/polymer/v3_0/components-chromium/polymer/polymer_bundled.min.js
+                src/3rdparty/chromium/third_party/openh264/src/autotest/performanceTest/ios/fruitstrap
+                src/3rdparty/chromium/third_party/openh264/src/autotest/performanceTest/ios/iFileTransfer
                 src/3rdparty/chromium/third_party/pycoverage/coverage/htmlfiles/*.min.js
                 src/3rdparty/chromium/third_party/pyelftools/examples/sample_exe64.elf
+                src/3rdparty/chromium/third_party/skia/platform_tools/android/apps/gradle/wrapper/gradle-wrapper.jar
                 src/3rdparty/chromium/third_party/skia/platform_tools/android/bin/linux/perfhost
+                src/3rdparty/chromium/third_party/skia/platform_tools/android/bin/mac/perfhost
                 src/3rdparty/chromium/third_party/skia/resources/icc_profiles/AdobeRGB1998.icc
                 src/3rdparty/chromium/third_party/skia/resources/icc_profiles/srgb_lab_pcs.icc
                 src/3rdparty/chromium/third_party/skia/site/user/api/catalog.htm
+                src/3rdparty/chromium/third_party/skia/tools/perf-canvaskit-puppeteer/path_translate_assets/car.svg
+                src/3rdparty/chromium/third_party/spirv-cross/spirv-cross/tests-other/*.spv
                 src/3rdparty/chromium/third_party/unrar
+                src/3rdparty/chromium/third_party/vulkan_memory_allocator/bin/*.exe
+                src/3rdparty/chromium/third_party/vulkan_memory_allocator/bin/*.spv
+                src/3rdparty/chromium/third_party/vulkan_memory_allocator/docs
+                src/3rdparty/chromium/third_party/vulkan_memory_allocator/premake/premake5.exe
                 src/3rdparty/chromium/third_party/web-animations-js/sources/*.min.js
                 src/3rdparty/chromium/third_party/webrtc/data/voice_engine/stereo_rtp_files/rtpplay.exe
                 src/3rdparty/chromium/third_party/webrtc/examples/androidapp/third_party/autobanh
                 src/3rdparty/chromium/third_party/webxr_test_pages/webxr-samples/js/third-party/dat.gui/dat.gui.min.js
+                src/3rdparty/chromium/third_party/win_build_output
                 src/3rdparty/chromium/ui/accessibility/extensions/highcontrast/highcontrast.js
+                src/3rdparty/chromium/v8/third_party/wasm-api/example/*.wasm
+                tests/auto/widgets/resources/test.swf
 
 Files: *
-Copyright: 2006-2020 The Chromium Authors
-           2016-2020 The Qt Company Ltd.
+Copyright: 2006-2022 The Chromium Authors
+           2016-2022 The Qt Company Ltd.
 License: LGPL-3 or GPL-2
 
 Files: debian/*
 Copyright: 2016-2019 Scarlett Moore <sgmoore@kde.org>
            2016-2017 Sandro Knauß <hefee@debian.org>
-           2017-2020 Dmitry Shachnev <mitya57@debian.org>
+           2017-2023 Dmitry Shachnev <mitya57@debian.org>
+           2023 Soren Stoutner <soren@stoutner.com>
 License: LGPL-3
 
 Files: config.tests/*
@@ -80,11 +109,11 @@ Copyright: 2016-2020 The Qt Company Ltd.
 License: GFDL-NIV-1.3
 
 Files: src/3rdparty/chromium/*
-Copyright: 2015-2020 The Chromium Authors
+Copyright: 2015-2021 The Chromium Authors
 License: BSD-3-clause
 
 Files: src/3rdparty/gn/*
-Copyright: 2015 The Chromium Authors
+Copyright: 2015-2020 The Chromium Authors
 License: BSD-3-clause
 
 Files: src/3rdparty/ninja/*
@@ -259,6 +288,10 @@ Files: src/3rdparty/chromium/third_party/angle/src/common/third_party/xxhash/*
 Copyright: xxHash developers
 License: BSD-3-clause
 
+Files: src/3rdparty/chromium/third_party/angle/src/libANGLE/renderer/vulkan/shaders/src/third_party/ffx_spd/*
+Copyright: ffx-spd developers
+License: MIT
+
 Files: src/3rdparty/chromium/third_party/angle/src/third_party/compiler/*
 Copyright: WebKit developers
 License: BSD-3-clause
@@ -270,10 +303,6 @@ License: MIT
 Files: src/3rdparty/chromium/third_party/angle/src/third_party/volk/*
 Copyright: volk developers
 License: MIT
-
-Files: src/3rdparty/chromium/third_party/angle/third_party/VK-GL-CTS/*
-Copyright: VK-GL-CTS developers
-License: Apache-2.0
 
 Files: src/3rdparty/chromium/third_party/angle/third_party/glslang/*
 Copyright: glslang developers
@@ -391,62 +420,6 @@ Files: src/3rdparty/chromium/third_party/byte_buddy/*
 Copyright: Byte Buddy developers
 License: Apache-2.0
 
-Files: src/3rdparty/chromium/third_party/catapult/common/py_trace_event/third_party/protobuf/*
-Copyright: Protobuf developers
-License: BSD-3-clause
-
-Files: src/3rdparty/chromium/third_party/catapult/common/py_vulcanize/third_party/rcssmin/*
-Copyright: rcssmin developers
-License: Apache-2.0
-
-Files: src/3rdparty/chromium/third_party/catapult/common/py_vulcanize/third_party/rjsmin/*
-Copyright: rJSmin developers
-License: Apache-2.0
-
-Files: src/3rdparty/chromium/third_party/catapult/tracing/third_party/chai/*
-Copyright: chai developers
-License: MIT
-
-Files: src/3rdparty/chromium/third_party/catapult/tracing/third_party/d3/*
-Copyright: d3 developers
-License: BSD-3-clause
-
-Files: src/3rdparty/chromium/third_party/catapult/tracing/third_party/devscripts/*
-Copyright: devscripts developers
-License: GPL-2
-
-Files: src/3rdparty/chromium/third_party/catapult/tracing/third_party/gl-matrix/*
-Copyright: gl-matrix developers
-License: BSD-3-clause
-
-Files: src/3rdparty/chromium/third_party/catapult/tracing/third_party/jpeg-js/*
-Copyright: jpeg-js developers
-License: Apache-2.0
-
-Files: src/3rdparty/chromium/third_party/catapult/tracing/third_party/jszip/*
-Copyright: JSZip developers
-License: MIT or GPL-3
-
-Files: src/3rdparty/chromium/third_party/catapult/tracing/third_party/mannwhitneyu/*
-Copyright: mannwhitneyu developers
-License: MIT
-
-Files: src/3rdparty/chromium/third_party/catapult/tracing/third_party/mocha/*
-Copyright: Mocha developers
-License: MIT
-
-Files: src/3rdparty/chromium/third_party/catapult/tracing/third_party/oboe/*
-Copyright: oboe developers
-License: BSD-2-clause
-
-Files: src/3rdparty/chromium/third_party/catapult/tracing/third_party/pako/*
-Copyright: pako developers
-License: MIT
-
-Files: src/3rdparty/chromium/third_party/catapult/tracing/third_party/symbols/*
-Copyright: symbols module from Chromium developers
-License: BSD-3-clause
-
 Files: src/3rdparty/chromium/third_party/ced/*
 Copyright: ced developers
 License: Apache-2.0
@@ -483,8 +456,8 @@ Files: src/3rdparty/chromium/third_party/crashpad/crashpad/third_party/glibc/*
 Copyright: glibc developers
 License: LGPL-2.1
 
-Files: src/3rdparty/chromium/third_party/crashpad/crashpad/third_party/gtest/*
-Copyright: gtest developers
+Files: src/3rdparty/chromium/third_party/crashpad/crashpad/third_party/googletest/*
+Copyright: googletest developers
 License: BSD-3-clause
 
 Files: src/3rdparty/chromium/third_party/crashpad/crashpad/third_party/gyp/*
@@ -511,10 +484,6 @@ Files: src/3rdparty/chromium/third_party/crc32c/*
 Copyright: crc32c developers
 License: BSD-3-clause
 
-Files: src/3rdparty/chromium/third_party/custom_tabs_client/*
-Copyright: Chrome Custom Tabs Client developers
-License: Apache-2.0
-
 Files: src/3rdparty/chromium/third_party/d3/*
 Copyright: d3 developers
 License: BSD-3-clause
@@ -535,9 +504,41 @@ Files: src/3rdparty/chromium/third_party/devscripts/*
 Copyright: devscripts developers
 License: GPL-2
 
+Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/acorn-logical-assignment/*
+Copyright: acorn-logical-assignment developers
+License: MIT
+
+Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/acorn-loose/*
+Copyright: acorn-loose developers
+License: MIT
+
+Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/acorn-numeric-separator/*
+Copyright: acorn-numeric-separator developers
+License: MIT
+
+Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/acorn/*
+Copyright: acorn developers
+License: MIT
+
+Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/axe-core/*
+Copyright: axe-core developers
+License: MPL-2.0
+
+Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/codemirror/*
+Copyright: CodeMirror developers
+License: MIT
+
 Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/fabricjs/*
 Copyright: fabricjs developers
 License: MIT
+
+Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/i18n/*
+Copyright: i18n developers
+License: Apache-2.0
+
+Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/intl-messageformat/*
+Copyright: intl-messageformat developers
+License: BSD-3-clause
 
 Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/lighthouse/*
 Copyright: lighthouse developers
@@ -547,13 +548,25 @@ Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_p
 Copyright: lit-html developers
 License: BSD-3-clause
 
+Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/lodash-isequal/*
+Copyright: lodash.isequal developers
+License: MIT
+
+Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/marked/*
+Copyright: marked developers
+License: MIT
+
+Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/puppeteer/*
+Copyright: Puppeteer developers
+License: Apache-2.0
+
 Files: src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/wasmparser/*
 Copyright: wasmparser developers
 License: Apache-2.0
 
-Files: src/3rdparty/chromium/third_party/devtools-frontend/src/third_party/axe-core/*
-Copyright: axe-core developers
-License: MPL-2.0
+Files: src/3rdparty/chromium/third_party/devtools-frontend/src/third_party/i18n/*
+Copyright: i18n developers
+License: Apache-2.0
 
 Files: src/3rdparty/chromium/third_party/devtools-frontend/src/third_party/pyjson5/*
 Copyright: pyjson5 developers
@@ -603,9 +616,9 @@ Files: src/3rdparty/chromium/third_party/freetype/*
 Copyright: FreeType developers
 License: FTL
 
-Files: src/3rdparty/chromium/third_party/fuchsia-sdk/*
-Copyright: Fuchsia NDK developers
-License: BSD-3-clause and MIT and GPL-2
+Files: src/3rdparty/chromium/third_party/fusejs/*
+Copyright: Fuse.js developers
+License: Apache-2.0
 
 Files: src/3rdparty/chromium/third_party/gif_player/*
 Copyright: GifPlayer developers
@@ -618,6 +631,10 @@ License: Zlib
 Files: src/3rdparty/chromium/third_party/glslang/*
 Copyright: glslang developers
 License: MIT
+
+Files: src/3rdparty/chromium/third_party/google-closure-library/*
+Copyright: closure-library developers
+License: Apache-2.0
 
 Files: src/3rdparty/chromium/third_party/google-truth/*
 Copyright: google-truth developers
@@ -654,6 +671,10 @@ License: MIT
 Files: src/3rdparty/chromium/third_party/hunspell/*
 Copyright: hunspell developers
 License: MPL-1.1 or GPL-2 or LGPL-2.1
+
+Files: src/3rdparty/chromium/third_party/hyphenation-patterns/*
+Copyright: hyphenation-patterns developers
+License: LGPL-2.1 and MIT and Unicode and BSD-3-clause
 
 Files: src/3rdparty/chromium/third_party/iaccessible2/*
 Copyright: IAccessible2 developers
@@ -759,9 +780,13 @@ Files: src/3rdparty/chromium/third_party/libaom/source/libaom/third_party/x86inc
 Copyright: x86inc developers
 License: ISC
 
-Files: src/3rdparty/chromium/third_party/libcxx-pretty-printers/*
-Copyright: libcxx-pretty-printers developers
-License: GPL-3
+Files: src/3rdparty/chromium/third_party/libavif/*
+Copyright: avif developers
+License: BSD-2-clause
+
+Files: src/3rdparty/chromium/third_party/libbrlapi/*
+Copyright: libbrlapi developers
+License: LGPL-2.1
 
 Files: src/3rdparty/chromium/third_party/libdrm/*
 Copyright: libdrm developers
@@ -919,6 +944,10 @@ Files: src/3rdparty/chromium/third_party/nasm/*
 Copyright: nasm developers
 License: BSD-2-clause
 
+Files: src/3rdparty/chromium/third_party/nearby/*
+Copyright: Nearby developers
+License: Apache-2.0
+
 Files: src/3rdparty/chromium/third_party/netty-tcnative/*
 Copyright: netty-tcnative developers
 License: Apache-2.0
@@ -943,16 +972,16 @@ Files: src/3rdparty/chromium/third_party/one_euro_filter/*
 Copyright: 1€ filter developers
 License: BSD-3-clause
 
+Files: src/3rdparty/chromium/third_party/opencv/*
+Copyright: opencv developers
+License: BSD-3-clause
+
 Files: src/3rdparty/chromium/third_party/openh264/*
 Copyright: openh264 developers
 License: BSD-2-clause
 
 Files: src/3rdparty/chromium/third_party/openscreen/*
 Copyright: openscreen developers
-License: BSD-3-clause
-
-Files: src/3rdparty/chromium/third_party/openvr/*
-Copyright: OpenVR developers
 License: BSD-3-clause
 
 Files: src/3rdparty/chromium/third_party/openxr/*
@@ -974,10 +1003,6 @@ License: BSD-3-clause
 Files: src/3rdparty/chromium/third_party/pdfium/third_party/agg23/*
 Copyright: Anti-Grain Geometry developers
 License: MIT
-
-Files: src/3rdparty/chromium/third_party/pdfium/third_party/eu-strip/*
-Copyright: eu-strip developers
-License: LGPL-3
 
 Files: src/3rdparty/chromium/third_party/pdfium/third_party/freetype/*
 Copyright: FreeType developers
@@ -1006,10 +1031,6 @@ License: BSD-3-clause
 Files: src/3rdparty/chromium/third_party/pdfium/third_party/pymock/*
 Copyright: mock developers
 License: BSD-3-clause
-
-Files: src/3rdparty/chromium/third_party/pdfium/third_party/yasm/*
-Copyright: yasm developers
-License: BSD-2-clause or BSD-3-clause, and GPL-2
 
 Files: src/3rdparty/chromium/third_party/perfetto/*
 Copyright: Perfetto developers
@@ -1080,6 +1101,10 @@ Files: src/3rdparty/chromium/third_party/private-join-and-compute/*
 Copyright: private-join-and-compute developers
 License: Apache-2.0
 
+Files: src/3rdparty/chromium/third_party/private_membership/*
+Copyright: PSM (Private Set Membership) client side developers
+License: Apache-2.0
+
 Files: src/3rdparty/chromium/third_party/proguard/*
 Copyright: Proguard developers
 License: GPL-2
@@ -1104,17 +1129,9 @@ Files: src/3rdparty/chromium/third_party/pyjson5/*
 Copyright: pyjson5 developers
 License: Apache-2.0
 
-Files: src/3rdparty/chromium/third_party/pymock/*
-Copyright: mock developers
-License: BSD-3-clause
-
 Files: src/3rdparty/chromium/third_party/pystache/*
 Copyright: Pystache developers
 License: MIT
-
-Files: src/3rdparty/chromium/third_party/pywebsocket/*
-Copyright: pywebsocket developers
-License: BSD-3-clause
 
 Files: src/3rdparty/chromium/third_party/pywebsocket3/*
 Copyright: pywebsocket3 developers
@@ -1160,8 +1177,20 @@ Files: src/3rdparty/chromium/third_party/schema_org/*
 Copyright: schema_org developers
 License: CC-BY-SA-3.0
 
+Files: src/3rdparty/chromium/third_party/securemessage/*
+Copyright: Secure Message developers
+License: Apache-2.0
+
 Files: src/3rdparty/chromium/third_party/shaderc/*
 Copyright: shaderc developers
+License: Apache-2.0
+
+Files: src/3rdparty/chromium/third_party/shaka-player/*
+Copyright: shaka-player developers
+License: Apache-2.0
+
+Files: src/3rdparty/chromium/third_party/shell-encryption/*
+Copyright: Simple Homomorphic Encryption Library with Lattices developers
 License: Apache-2.0
 
 Files: src/3rdparty/chromium/third_party/simplejson/*
@@ -1228,6 +1257,14 @@ Files: src/3rdparty/chromium/third_party/test_fonts/*
 Copyright: test_fonts developers
 License: OFL-1.1 and GPL-2 and bitstream-vera
 
+Files: src/3rdparty/chromium/third_party/text-fragments-polyfill/*
+Copyright: text-fragments-polyfill developers
+License: Apache-2.0
+
+Files: src/3rdparty/chromium/third_party/tint/*
+Copyright: tint developers
+License: Apache-2.0
+
 Files: src/3rdparty/chromium/third_party/tlslite/*
 Copyright: tlslite developers
 License: public-domain and BSD-3-clause
@@ -1238,6 +1275,10 @@ License: Apache-2.0
 
 Files: src/3rdparty/chromium/third_party/ub-uiautomator/*
 Copyright: uiautomator (unbundled) developers
+License: Apache-2.0
+
+Files: src/3rdparty/chromium/third_party/ukey2/*
+Copyright: Ukey2 developers
 License: Apache-2.0
 
 Files: src/3rdparty/chromium/third_party/usb_ids/*
@@ -1252,9 +1293,13 @@ Files: src/3rdparty/chromium/third_party/v4l-utils/*
 Copyright: v4l-utils developers
 License: LGPL-2.1
 
-Files: src/3rdparty/chromium/third_party/vulkan/*
+Files: src/3rdparty/chromium/third_party/vulkan_headers/*
 Copyright: Vulkan developers
 License: Apache-2.0
+
+Files: src/3rdparty/chromium/third_party/vulkan_memory_allocator/*
+Copyright: VulkanMemoryAllocator developers
+License: MIT
 
 Files: src/3rdparty/chromium/third_party/wds/*
 Copyright: WDS developers
@@ -1276,7 +1321,7 @@ Files: src/3rdparty/chromium/third_party/webrtc/*
 Copyright: WebRTC developers
 License: BSD-3-clause
 
-Files: src/3rdparty/chromium/third_party/webrtc/common_audio/third_party/fft4g/*
+Files: src/3rdparty/chromium/third_party/webrtc/common_audio/third_party/ooura/*
 Copyright: fft4g developers
 License: custom-fft4g
  /*
@@ -1506,13 +1551,9 @@ Files: src/3rdparty/chromium/third_party/weston/*
 Copyright: Weston developers
 License: MIT
 
-Files: src/3rdparty/chromium/third_party/win_build_output/*
-Copyright: Checked in build outputs generated on Windows. developers
-License: BSD-3-clause
-
 Files: src/3rdparty/chromium/third_party/woff2/*
 Copyright: woff2 developers
-License: Apache-2.0
+License: MIT
 
 Files: src/3rdparty/chromium/third_party/wtl/*
 Copyright: Windows Template Library (WTL) developers
@@ -1522,6 +1563,10 @@ Files: src/3rdparty/chromium/third_party/wuffs/*
 Copyright: Wuffs developers
 License: Apache-2.0
 
+Files: src/3rdparty/chromium/third_party/xcbproto/*
+Copyright: xcbproto developers
+License: MIT
+
 Files: src/3rdparty/chromium/third_party/xdg-utils/*
 Copyright: xdg-utils developers
 License: MIT
@@ -1530,13 +1575,17 @@ Files: src/3rdparty/chromium/third_party/xstream/*
 Copyright: Xstream developers
 License: BSD-3-clause
 
-Files: src/3rdparty/chromium/third_party/yasm/*
-Copyright: yasm developers
-License: BSD-2-clause or BSD-3-clause, and GPL-2
-
 Files: src/3rdparty/chromium/third_party/zlib/*
 Copyright: zlib developers
 License: Zlib
+
+Files: src/3rdparty/chromium/third_party/zlib/contrib/minizip/*
+Copyright: minizip developers
+License: Zlib
+
+Files: src/3rdparty/chromium/third_party/zxcvbn-cpp/*
+Copyright: zxcvbn-cpp developers
+License: MIT
 
 Files: src/3rdparty/chromium/tools/grit/third_party/six/*
 Copyright: six developers
@@ -1566,6 +1615,10 @@ Files: src/3rdparty/chromium/v8/third_party/colorama/*
 Copyright: colorama developers
 License: BSD-3-clause
 
+Files: src/3rdparty/chromium/v8/third_party/google_benchmark/*
+Copyright: benchmark developers
+License: Apache-2.0
+
 Files: src/3rdparty/chromium/v8/third_party/googletest/*
 Copyright: googletest developers
 License: BSD-3-clause
@@ -1573,6 +1626,10 @@ License: BSD-3-clause
 Files: src/3rdparty/chromium/v8/third_party/inspector_protocol/*
 Copyright: inspector_protocol developers
 License: BSD-3-clause
+
+Files: src/3rdparty/chromium/v8/third_party/jsoncpp/*
+Copyright: jsoncpp developers
+License: MIT
 
 Files: src/3rdparty/chromium/v8/third_party/wasm-api/*
 Copyright: wasm-c-api developers
