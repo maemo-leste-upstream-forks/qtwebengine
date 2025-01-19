@@ -1,0 +1,2 @@
+# /usr/lib/x86_64-linux-gnu/qt5/examples/ is the correct system directory for qt5 example files.
+qtpdf5-examples: package-contains-documentation-outside-usr-share-doc [usr/lib/*/qt5/examples/pdf/*]

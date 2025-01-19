@@ -1,0 +1,3 @@
+# This documentation should exist in /usr/share/qt5/doc/ so that qt can find it.  It is linked from /usr/share/doc/qtwebengine5-doc-html/.
+# See <https://bugs.debian.org/975941> and <https://www.debian.org/doc/debian-policy/ch-docs.html#additional-documentation>.
+qtwebengine5-doc-html: package-contains-documentation-outside-usr-share-doc [usr/share/qt5/doc/qtwebengine/*]

@@ -1,0 +1,178 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+export NINJA_PATH=/usr/bin/ninja
+export NINJAFLAGS=-v
+include /usr/share/dpkg/default.mk
+
+export CFLAGS := $(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
+export CXXFLAGS := $(shell dpkg-buildflags --get CXXFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
+export LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS)
+export QT_SELECT := qt5
+
+PARALLEL_OPTION = $(filter parallel=%,$(DEB_BUILD_OPTIONS))
+ifneq (,$(PARALLEL_OPTION))
+	NUMJOBS = $(patsubst parallel=%,%,$(PARALLEL_OPTION))
+	export NINJAJOBS = -j$(NUMJOBS)
+endif
+
+ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+ifneq (,$(filter $(DEB_HOST_ARCH), amd64 arm64))
+	export NINJAJOBS = -j2
+endif
+endif
+
+config_args = -proprietary-codecs \
+              -feature-webengine-system-libvpx \
+              -feature-webengine-system-openjpeg2 \
+              -webengine-jumbo-build 0 \
+              -system-opus \
+              -system-webp \
+              -system-webengine-icu \
+              -webengine-webrtc-pipewire \
+              -webengine-kerberos
+
+# Disable debugging symbols; save memory during linking; hardening.
+qmake_args = \
+	'QMAKE_CFLAGS-=-g' \
+	'QMAKE_CXXFLAGS-=-g' \
+	'QT_CONFIG-=force_debug_info separate_debug_info' \
+	'QMAKE_LFLAGS+=-Wl,--no-keep-memory -Wl,-z,now'
+
+ifeq ($(DEB_HOST_ARCH),armhf)
+	qmake_args += \
+		'QMAKE_CFLAGS+=--param ggc-min-expand=20' \
+		'QMAKE_CXXFLAGS+=--param ggc-min-expand=20' \
+		'QMAKE_LFLAGS-=-Wl,--gc-sections'
+endif
+
+ifeq ($(DEB_HOST_ARCH),i386)
+	# Make the following linker warning on i386 not fatal:
+	# /usr/bin/ld: .../src/core/release/obj/third_party/ffmpeg/ffmpeg_nasm/dct32.o: warning: relocation in read-only section `.text'
+	# /usr/bin/ld: warning: creating DT_TEXTREL in a shared object
+	# Upstream does the same for lld linker, see third_party/ffmpeg/BUILD.gn.
+	qmake_args += 'QMAKE_LFLAGS+=-Wl,-z,notext'
+endif
+
+touch_files = src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/lighthouse/lighthouse-dt-bundle.js \
+	      src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/lighthouse/report-assets/report-generator.js \
+	      src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/diff/diff_match_patch.js \
+	      src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/acorn/package/dist/acorn.js \
+	      src/3rdparty/chromium/third_party/web-animations-js/sources/web-animations-next-lite.min.js
+
+%:
+	dh $@ --with pkgkde_symbolshelper
+
+override_dh_auto_clean:
+	dh_auto_clean
+
+	find -name __pycache__ | xargs rm -rfv
+	find examples/ -type f -executable -delete
+	find tests/ -type f -executable -delete
+	find examples/ -name Makefile -delete
+	find tests/ -name Makefile -delete
+
+	for fname in $(touch_files); do \
+		rm -f $(CURDIR)/$${fname}; \
+	done
+
+override_dh_auto_configure:
+	qmake QT_BUILD_PARTS+=tests QMAKE_EXTRA_ARGS+="$(config_args)" QMAKE_PYTHON2=python3 $(qmake_args)
+
+	# Create js files, that are needed for building step for arch and indep builds
+	cd $(CURDIR)/src/3rdparty/chromium/third_party/jstemplate/; \
+		cat util.js jsevalcontext.js jstemplate.js exports.js > jstemplate_compiled.js
+
+	>examples/webenginewidgets/contentmanipulation/jquery.js cat debian/missing-sources/jquery-*.js
+	yui-compressor --type js "examples/webenginewidgets/contentmanipulation/jquery.js" -o "examples/webenginewidgets/contentmanipulation/jquery.min.js"
+
+	set -ex; for fname in $(touch_files); do \
+		mkdir -p $(CURDIR)/$$(dirname $${fname}); \
+		touch $(CURDIR)/$${fname}; \
+	done
+
+	/usr/lib/qt5/bin/syncqt.pl Source -version $(word 1,$(subst +, ,$(DEB_VERSION_UPSTREAM)))
+
+	# Link against the system version of dagre-layout.  The bundled version was removed by debian/copyright.
+	mkdir -p src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/dagre_layout
+	ln -s /usr/share/nodejs/dagre/dist/dagre.js -t src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/dagre_layout
+
+override_dh_auto_build-arch:
+	dh_auto_build -- -Onone
+
+#we also need the resources.pak files, so we need the normal build.
+override_dh_auto_build-indep: override_dh_auto_build-arch
+	dh_auto_build -- docs
+
+override_dh_auto_install-arch:
+	dh_auto_install
+
+	# Remove rpath from the offending binaries
+	chrpath -d $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/qt5/libexec/QtWebEngineProcess
+
+	# Fix wrong path in pkgconfig files
+	find $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig -type f -name '*.pc' \
+	-exec sed -i -e 's/$(DEB_HOST_MULTIARCH)\/$(DEB_HOST_MULTIARCH)/$(DEB_HOST_MULTIARCH)/g' {} \;
+
+	# Remove libtool-like files
+	rm -fv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/*.la
+
+	# Do not require matching versions of Qt dependencies
+	set -eu && \
+	VERSION=$(word 1,$(subst +, ,$(DEB_VERSION_UPSTREAM))) && \
+	QT_VERSION=$$(qmake -query QT_VERSION) && \
+	sed -i "s/$$VERSION /$$QT_VERSION /" debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/cmake/*/*Config.cmake
+
+override_dh_auto_install-indep: override_dh_auto_install-arch
+	dh_auto_build -- INSTALL_ROOT=$(CURDIR)/debian/tmp install_docs
+
+override_dh_link:
+	dh_link --package=qtwebengine5-examples \
+		usr/share/javascript/jquery/jquery.min.js usr/lib/$(DEB_HOST_MULTIARCH)/qt5/examples/webenginewidgets/contentmanipulation/jquery.min.js \
+		usr/share/javascript/marked/marked.min.js usr/lib/$(DEB_HOST_MULTIARCH)/qt5/examples/webenginewidgets/markdowneditor/resources/marked.js
+	dh_link --package=qtwebengine5-dev-tools \
+		usr/lib/qt5/bin/qwebengine_convert_dict usr/lib/$(DEB_HOST_MULTIARCH)/qt5/bin/qwebengine_convert_dict
+
+	dh_link --remaining-packages
+
+override_dh_auto_test-arch:
+	$(MAKE) install -Csrc/core INSTALL_ROOT=$(CURDIR)/test_root
+	-QTWEBENGINEPROCESS_PATH=$(CURDIR)/libexec/QtWebEngineProcess xvfb-run -a \
+		-s "-screen 0 1024x768x24 +extension RANDR +extension RENDER +extension GLX" \
+		dh_auto_test --no-parallel -- -k \
+		QML2_IMPORT_PATH=$(CURDIR)/test_root/usr/lib/$(DEB_HOST_MULTIARCH)/qt5/qml \
+		LD_LIBRARY_PATH=$(CURDIR)/lib
+
+override_dh_auto_test-indep:
+	# Do not attempt to run anything to make build-indep work
+
+export define GET_FILES_EXCLUDED
+from debian import copyright
+with open('$(CURDIR)/debian/copyright') as copyright_file:
+    c = copyright.Copyright(copyright_file)
+for pattern in c.header.files_excluded:
+    print(pattern)
+endef
+
+get-orig-source:
+	@set -eux && \
+	TEMPDIR=$$(mktemp -d) && \
+	VERSION=$(word 1,$(subst +, ,$(DEB_VERSION_UPSTREAM))) && \
+	DFSG=$(word 2,$(subst +, ,$(DEB_VERSION_UPSTREAM))) && \
+	SUBMODULE_COMMIT=fdfef5b37af3bed8402d7c7e20a5487f2602b0a6 && \
+	echo "$${GET_FILES_EXCLUDED}" >$${TEMPDIR}/get_files_excluded.py && \
+	cd $${TEMPDIR} && \
+	wget https://github.com/qt/qtwebengine/archive/v$${VERSION}-lts.tar.gz && \
+	tar xzf v$${VERSION}-lts.tar.gz && \
+	cd qtwebengine-$${VERSION}-lts/src/3rdparty && \
+	wget https://github.com/qt/qtwebengine-chromium/archive/$${SUBMODULE_COMMIT}.tar.gz && \
+	tar xz --strip-components=1 -f $${SUBMODULE_COMMIT}.tar.gz && \
+	rm $${SUBMODULE_COMMIT}.tar.gz && \
+	cd $${TEMPDIR}/qtwebengine-$${VERSION}-lts && \
+	python3 $${TEMPDIR}/get_files_excluded.py | while read pattern; do rm -rf $$pattern; done && \
+	cd src/3rdparty/chromium/third_party/devtools-frontend/src/node_modules && \
+	ls -A | grep -Ev '^(@types|rollup|typescript)$$' | xargs rm -rf && \
+	cd $${TEMPDIR} && \
+	tar cJ --owner=root --group=root --sort=name -f $(CURDIR)/../qtwebengine-opensource-src_$${VERSION}+$${DFSG}.orig.tar.xz qtwebengine-$${VERSION}-lts && \
+	rm -rf $${TEMPDIR}

@@ -1,0 +1,28 @@
+# Use system libraries.
+system-openjpeg2.patch
+system-lcms2.patch
+system-nspr-prtime.patch
+system-icu-utf.patch
+
+# Fix python problems.
+python3.12-imp.patch
+python3.12-six.patch
+python3.13-pipes.patch
+
+# General patches.
+verbose-gn-bootstrap.patch
+mips64el-ptrace-include.patch
+mips64el-no-dav1d.patch
+sandbox-time64-syscalls.patch
+breakpad-getcontext.patch
+mips64el-crashpad.patch
+mips64el-bad-define.patch
+mips64el-syscall-ranges.patch
+mips64el-kernel_stat64.patch
+armhf-no-thumb.patch
+disable-catapult.patch
+pipewire-0.3.patch
+fix-example-pro-files.patch
+build-with-c++17.patch
+ninja-1.12.patch
+mips64el-v8-regexp.patch
