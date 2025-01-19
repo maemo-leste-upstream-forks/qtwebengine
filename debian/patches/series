@@ -26,3 +26,6 @@ fix-example-pro-files.patch
 build-with-c++17.patch
 ninja-1.12.patch
 mips64el-v8-regexp.patch
+
+# Maemo patch
+0001-content_gpu_client-also-accept-maemo.patch

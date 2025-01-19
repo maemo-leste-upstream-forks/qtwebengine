@@ -1,0 +1,25 @@
+From f9260a07a156a5bb6a6c8a0d665ff5168cbf938c Mon Sep 17 00:00:00 2001
+From: Merlijn Wajer <merlijn@wizzup.org>
+Date: Sun, 19 Jan 2025 13:58:20 +0100
+Subject: [PATCH] content_gpu_client: also accept maemo
+
+---
+ src/core/compositor/content_gpu_client_qt.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/core/compositor/content_gpu_client_qt.cpp b/src/core/compositor/content_gpu_client_qt.cpp
+index 8d7d5bce5..384730253 100644
+--- a/src/core/compositor/content_gpu_client_qt.cpp
++++ b/src/core/compositor/content_gpu_client_qt.cpp
+@@ -65,7 +65,7 @@ public:
+     {
+         QString platform = qApp->platformName().toLower();
+         QPlatformNativeInterface *pni = QGuiApplication::platformNativeInterface();
+-        if (platform == QLatin1String("xcb") || platform == QLatin1String("offscreen")) {
++        if (platform == QLatin1String("xcb") || platform == QLatin1String("maemo") || platform == QLatin1String("offscreen")) {
+             if (gl::GetGLImplementation() == gl::kGLImplementationEGLGLES2)
+                 m_handle =
+                         pni->nativeResourceForContext(QByteArrayLiteral("eglcontext"), qtContext);
+-- 
+2.45.2
+
